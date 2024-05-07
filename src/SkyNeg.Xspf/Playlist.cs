@@ -71,13 +71,13 @@ namespace SkyNeg.Xspf
         /// If you modify such a playlist, move its //playlist/location or //playlist/identifier element to the top of the items in the //playlist/attribution element. xspf:playlist elements MAY contain exactly one xspf:attribution element.
         /// https://www.xspf.org/spec#411210-attribution
         /// </summary>
-        public List<string> Attribution { get; set; }
+        public List<string> Attribution { get; set; } = new List<string>();
 
         /// <summary>
         /// The link element allows XSPF to be extended without the use of XML namespaces. xspf:playlist elements MAY contain zero or more link elements.
         /// <link rel="http://foaf.example.org/namespace/version1">http://socialnetwork.example.org/foaf/mary.rdfs</link>
         /// </summary>
-        public List<Link> Links { get; set; }
+        public List<Link> Links { get; set; } = new List<Link>();
 
         /// <summary>
         /// The meta element allows metadata fields to be added to XSPF. xspf:playlist elements MAY contain zero or more meta elements.
@@ -99,6 +99,6 @@ namespace SkyNeg.Xspf
         /// </summary>
         [XmlArray("trackList")]
         [XmlArrayItem("track")]
-        public List<Track> Tracks { get; set; }
+        public List<Track> Tracks { get; set; } = new List<Track>();
     }
 }
