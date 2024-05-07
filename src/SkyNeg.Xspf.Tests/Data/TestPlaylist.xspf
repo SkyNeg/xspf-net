@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<playlist version="1" xmlns="http://xspf.org/ns/0/" xmlns:cl="http://example.com">
+  <title>Sample playlist</title>
+  <creator>Creator</creator>
+  <annotation>Annotation</annotation>
+  <info>https://info</info>
+  <location>https://location</location>
+  <identifier>Identifier</identifier>
+  <image>https://image</image>
+  <date>2005-01-08T17:10:47-05:00</date>
+  <license>https://license</license>
+  <attribution>
+    <location>http://bar.com/modified\_version\_of\_original\_playlist.xspf</location>
+    <identifier>somescheme:original\_playlist.xspf</identifier>
+  </attribution>
+  <link rel="http://foaf.example.org/namespace/version1">http://socialnetwork.example.org/foaf/mary.rdfs</link>
+  <meta rel="http://example.org/key">value</meta>
+  <extension application="http://example.com">
+    <cl:clip start="25000" end="34500"/>
+  </extension>
+  <trackList>
+    <track>
+      <location>file:///music/song\_1.ogg</location>
+      <identifier>Track Identifier</identifier>
+      <title>Track Title</title>
+      <creator>Track Creator</creator>
+      <annotation>Track annotation</annotation>
+      <info>https://track.info</info>
+      <image>https://track.image</image>
+      <album>Track Album</album>
+      <trackNum>1</trackNum>
+      <duration>12345</duration>
+      <link rel="http://foaf.example.org/namespace/version1">http://socialnetwork.example.org/foaf/mary.rdfs</link>
+      <meta rel="http://example.org/key">value</meta>
+    </track>
+    <track>
+      <trackNum>2</trackNum>
+      <location>file:///music/song\_2.flac</location>
+    </track>
+    <track>
+      <trackNum>3</trackNum>
+      <location>file:///music/song\_3.mp3</location>
+    </track>
+  </trackList>
+</playlist>

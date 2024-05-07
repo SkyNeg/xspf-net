@@ -1,0 +1,41 @@
+name: Library to work with XSPF playlist
+
+on:
+  push:
+    branches: [ "master" ]
+
+jobs:
+  build:
+
+    env:
+      BUILD_CONFIG: "Release"
+      SOLUTION: "src/SkyNeg.Xspf.sln"
+      PROJECT: "src/SkyNeg.Xspf/SkyNeg.Xspf.csproj"
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+
+    - name: Setup NuGet
+      uses: NuGet/setup-nuget@v2
+
+    - name: Restore dependencies
+      run: nuget restore $SOLUTION
+
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: 8.0.x
+
+    - name: Build
+      run: dotnet build $SOLUTION --configuration $BUILD_CONFIG --no-restore
+
+    - name: Pack Nuget
+      run: dotnet pack $PROJECT --configuration $BUILD_CONFIG
+
+    - name: Publish Nuget to GitHub registry
+      run: dotnet nuget push src/SkyNeg.Xspf/**/*.nupkg -k ${PUBLISHER_TOKEN} -s https://api.nuget.org/v3/index.json --skip-duplicate --no-symbols 
+      env:
+        PUBLISHER_TOKEN: ${{secrets.PUBLISHER_TOKEN}}
