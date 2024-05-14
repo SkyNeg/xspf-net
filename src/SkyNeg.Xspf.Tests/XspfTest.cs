@@ -9,7 +9,7 @@ namespace SkyNeg.Xspf.Tests
             Playlist? playlist = null;
             using (var stream = File.OpenRead(path))
             {
-                playlist = Xspf.Read(stream);
+                playlist = XspfDocument.Read(stream);
             }
 
             Assert.NotNull(playlist);
@@ -37,9 +37,9 @@ namespace SkyNeg.Xspf.Tests
             Playlist? assertPlaylist = null;
             using (var ms = new MemoryStream())
             {
-                Xspf.Save(ms, playlist);
+                XspfDocument.Write(ms, playlist);
                 ms.Position = 0;
-                assertPlaylist = Xspf.Read(ms);
+                assertPlaylist = XspfDocument.Read(ms);
             }
 
             Assert.NotNull(assertPlaylist);
